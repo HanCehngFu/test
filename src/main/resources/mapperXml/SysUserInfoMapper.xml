@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nest_lot.dao.mapper.SysUserInfoMapper">
+	<resultMap id="BaseResultMap" type="com.nest_lot.dao.entity.SysUserInfo">
+		<id column="user_id" property="userId" jdbcType="BIGINT" />
+		<result column="user_uuid" property="userUuid" jdbcType="VARCHAR" />
+		<result column="user_login_id" property="userLoginId" jdbcType="VARCHAR" />
+		<result column="user_pwd" property="userPwd" jdbcType="VARCHAR" />
+		<result column="user_pwd_md5" property="userPwdMd5" jdbcType="VARCHAR" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="user_qq" property="userQq" jdbcType="VARCHAR" />
+		<result column="user_wechat" property="userWechat" jdbcType="VARCHAR" />
+		<result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
+		<result column="user_status" property="userStatus" jdbcType="VARCHAR" />
+		<result column="user_type" property="userType" jdbcType="VARCHAR" />
+		<result column="user_time" property="userTime" jdbcType="VARCHAR" />
+		<result column="tenant" property="tenant" jdbcType="BIGINT" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		user_id, user_uuid, user_login_id, user_pwd, user_pwd_md5,
+		user_name, user_qq,
+		user_wechat,
+		user_phone, user_status, user_type,
+		user_time,tenant
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="string">
+		select
+		<include refid="Base_Column_List" />
+		from sys_user_info
+		where user_uuid = #{uuId,jdbcType=VARCHAR}
+	</select>
+
+	<select id="queryForPage" resultMap="BaseResultMap"
+		parameterType="sysUserQuery">
+		select
+		<include refid="Base_Column_List" />
+		from sys_user_info
+		where user_status = 1
+		<!-- <if test="@Ognl@isNotEmpty(userLoginId)"> 
+		and user_login_id LIKE
+			CONCAT(CONCAT('%',#{userLoginId}),'%')
+		 </if>
+		<if test="@Ognl@isNotEmpty(userName)"> and user_name LIKE CONCAT(CONCAT('%',#{userName}),'%')
+		</if>
+				<if test="@Ognl@isNotEmpty(startTime)">
+					 <![CDATA[   and DATE_FORMAT(user_time, '%Y-%m-%d %T')>=  DATE_FORMAT(#{startTime}, '%Y-%m-%d %T')   ]]>
+				</if>
+				<if test="@Ognl@isNotEmpty(endTime)">
+				 <![CDATA[ and DATE_FORMAT(user_time,'%Y-%m-%d %T') < DATE_FORMAT( #{endTime},'%Y-%m-%d %T') ]]>
+				</if> -->
+				ORDER BY user_time desc
+	</select>
+	
+	<select id="queryByLoginId" resultMap="BaseResultMap"
+		parameterType="string">
+		select
+		<include refid="Base_Column_List" />
+		from sys_user_info
+		where user_login_id = #{userLoginId,jdbcType=VARCHAR}
+	</select>
+
+<update id="updatePwd" parameterType="string" >
+		update sys_user_info
+		<set>
+				user_pwd = #{userPwd,jdbcType=VARCHAR},
+				user_pwd_md5 = #{userPwdMd5,jdbcType=VARCHAR},
+		</set>
+		where user_login_id = #{userLoginId,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="checkUserLoginId" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from sys_user_info
+		where user_login_id =
+		#{userLoginId,jdbcType=VARCHAR} and user_pwd =
+		#{userPwd,jdbcType=VARCHAR}
+	</select>
+
+
+	<delete id="delete" parameterType="string">
+		delete from
+		sys_user_info
+		where user_uuid = #{id,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.nest_lot.dao.entity.SysUserInfo">
+		insert into sys_user_info
+		(user_id, user_uuid, user_login_id,
+		user_pwd, user_pwd_md5, user_name,
+		user_qq, user_wechat, user_phone,
+		user_status, user_type, user_time,tenant
+		)
+		values (#{userId,jdbcType=BIGINT}, #{userUuid,jdbcType=VARCHAR},
+		#{userLoginId,jdbcType=VARCHAR},
+		#{userPwd,jdbcType=VARCHAR},
+		#{userPwdMd5,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR},
+		#{userQq,jdbcType=VARCHAR}, #{userWechat,jdbcType=VARCHAR},
+		#{userPhone,jdbcType=VARCHAR},
+		#{userStatus,jdbcType=VARCHAR},
+		#{userType,jdbcType=VARCHAR}, #{userTime,jdbcType=VARCHAR},#{tenant,jdbcType=BIGINT}
+		)
+	</insert>
+	
+	<update id="update" parameterType="com.nest_lot.dao.entity.SysUserInfo">
+		update sys_user_info
+		<set>
+			<if test="@Ognl@isNotEmpty(userLoginId)">
+				user_login_id = #{userLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="@Ognl@isNotEmpty(userPwd)">
+				user_pwd = #{userPwd,jdbcType=VARCHAR},
+			</if>
+			<if test="@Ognl@isNotEmpty(userPwdMd5)">
+				user_pwd_md5 = #{userPwdMd5,jdbcType=VARCHAR},
+			</if>
+			<if test="@Ognl@isNotEmpty(userName)">
+				user_name = #{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="@Ognl@isNotEmpty(userQq)">
+				user_qq = #{userQq,jdbcType=VARCHAR},
+			</if>
+			<if test="@Ognl@isNotEmpty(userWechat)">
+				user_wechat = #{userWechat,jdbcType=VARCHAR},
+			</if>
+			<if test="@Ognl@isNotEmpty(userPhone)">
+				user_phone = #{userPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="@Ognl@isNotEmpty(userStatus)">
+				user_status = #{userStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="@Ognl@isNotEmpty(userType)">
+				user_type = #{userType,jdbcType=VARCHAR},
+			</if>
+			<if test="@Ognl@isNotEmpty(userTime)">
+				user_time = #{userTime,jdbcType=VARCHAR},
+			</if>
+			<if test="@Ognl@isNotEmpty(tenant)">
+				tenant = #{tenant,jdbcType=BIGINT},
+			</if>
+		</set>
+		where user_uuid = #{userUuid,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="com.nest_lot.dao.entity.SysUserInfo">
+		update
+		sys_user_info
+		set user_uuid = #{userUuid,jdbcType=VARCHAR},
+		user_login_id = #{userLoginId,jdbcType=VARCHAR},
+		user_pwd =
+		#{userPwd,jdbcType=VARCHAR},
+		user_pwd_md5 =
+		#{userPwdMd5,jdbcType=VARCHAR},
+		user_name =
+		#{userName,jdbcType=VARCHAR},
+		user_qq = #{userQq,jdbcType=VARCHAR},
+		user_wechat = #{userWechat,jdbcType=VARCHAR},
+		user_phone =
+		#{userPhone,jdbcType=VARCHAR},
+		user_status =
+		#{userStatus,jdbcType=VARCHAR},
+		user_type =
+		#{userType,jdbcType=VARCHAR},
+		user_time = #{userTime,jdbcType=VARCHAR},
+		tenant=#{tenant,jdbcType=BIGINT}
+		where user_id = #{userId,jdbcType=BIGINT}
+	</update>
+</mapper>

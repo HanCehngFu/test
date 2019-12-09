@@ -1,0 +1,1824 @@
+// 公共样式
+@default-color01: #171429;
+@default-color02: #FF4369;
+@font-weight-700: 700;
+@font-weight-500: 500;
+@font-weight-400: 400;
+/* 清除浮动 */
+
+.clearfix:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    font-size: 0;
+    visibility: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+a {
+    color: rgba(0, 0, 0, 0.65);
+
+    // &:hover {
+    //     color: rgba(0, 0, 0, 0.65);
+    // }
+}
+
+body {
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+}
+
+.current_color {
+    color: @default-color02;
+}
+
+// body.modal-open {
+//     overflow-y: scroll;
+//     padding-right: 0 !important;
+//     overflow-x:auto !important;
+//     padding-top:0px  !important;
+//     padding-bottom:0px  !important;
+// }
+
+
+
+table {
+
+    th,
+    td {
+        color: rgba(0, 0, 0, 0.85);
+    }
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+h3 {
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+
+i {
+    font-style: normal;
+}
+
+input:focus {
+    border: 1px solid rgba(0, 0, 0, 0.14901960)
+}
+
+
+
+::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: rgba(0, 0, 0, 0.25);
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: rgba(0, 0, 0, 0.25);
+
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: rgba(0, 0, 0, 0.25);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    line-height: 32px;
+    height: 32px;
+    -moz-appearance: textfield;
+}
+
+input[type="text"] {
+    height: 32px;
+    line-height: 32px;
+}
+
+.layui-table tbody tr:hover {
+    background-color: unset
+}
+
+.layui-form-checked[lay-skin=primary] i {
+    border-color: @default-color02  !important;
+    background-color: @default-color02;
+    color: #fff;
+}
+
+.layui-form-checkbox[lay-skin=primary]:hover i {
+    border-color: @default-color02  !important;
+}
+
+.layui-laydate-content td {
+    &:hover {
+        background: unset;
+    }
+}
+
+.layui-laydate .layui-this {
+    background-color: @default-color02  !important;
+    border-radius: 2px;
+}
+
+.layui-laydate-content td.laydate-selected {
+    background: rgba(255, 229, 234, 0.7);
+
+    &:hover {
+        border: 1px solid @default-color02;
+        border-radius: 2px;
+        background-color: unset !important;
+    }
+}
+
+.layui-laypage a,
+.layui-laypage span {
+    padding: 0 10px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 4px;
+    border: 0;
+}
+
+.layui-laypage a:hover {
+    color: @default-color02;
+}
+
+.layui-laypage .layui-laypage-refresh {
+    display: none;
+}
+
+.layui-laypage input:focus,
+.layui-laypage select:focus {
+    border-color: @default-color02  !important;
+}
+
+.layui-laypage button,
+.layui-laypage input {
+    height: 24px;
+    line-height: 24px;
+    border-radius: 2px;
+    vertical-align: top;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.layui-laypage select {
+    height: unset;
+    padding: 3px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.layui-layer-tips {
+
+    .layui-layer-content {
+        border-radius: 8px;
+        background-color: rgba(0, 0, 0, 8)
+    }
+}
+
+.selDate_item {
+    position: relative;
+
+    input {
+        padding-right: 30px;
+    }
+
+    i {
+        position: absolute;
+        top: 4px;
+        font-size: 22px;
+        right: 7px;
+
+    }
+}
+
+.password_modal {
+    input {
+        width: 100%;
+        height: 32px;
+        line-height: 32px;
+        border: 1px solid rgba(0, 0, 0, 0.14901960784313725);
+        border-radius: 4px;
+        padding: 0 10px;
+    }
+
+    p {
+        margin-top: 16px;
+        font-size: 14px;
+    }
+
+    .yellow {
+        color: #FFB934;
+    }
+}
+
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;
+
+}
+
+.btn_primary {
+    background-color: #7C50F2;
+    border: 0;
+    color: #fff;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+.btn_primary.active {
+    color: #fff;
+    background-color: #7C50F2 !important;
+}
+
+.btn_primary.active.focus {
+    color: #fff;
+    background-color: #7C50F2 !important;
+    outline: none;
+}
+
+.btn_default {
+    border: 1px solid #D9D9D9;
+    background-color: unset;
+
+    &:active.focus {
+        outline: none;
+    }
+}
+
+.layui-form-select .layui-input,
+.layui-input {
+    line-height: 32px;
+    height: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.14901960784313725);
+    border-radius: 4px;
+    // padding: 0 10px;
+}
+
+.modal {
+    .modal-title {
+        font-size: 16px;
+        font-weight: @font-weight-500;
+    }
+
+    .list_content {
+        th {
+            text-align: center;
+        }
+
+        td {
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            &:hover {
+                background-color: unset;
+            }
+
+        }
+
+        .action_bar {
+            span {
+                color: @default-color02;
+            }
+        }
+    }
+
+}
+
+.layui-form-label {
+    padding: 0;
+    width: unset;
+    line-height: 32px;
+    color: #575757;
+    padding-right: 6px;
+
+}
+
+.layui-input-block {
+    margin-left: 88px;
+}
+
+.layui-form-select dl dd.layui-this {
+    background-color: @default-color02;
+    color: #fff;
+}
+
+.layui-btn {
+    height: 32px;
+    line-height: 32px;
+    border-radius: 4px;
+    background-color: @default-color02;
+}
+
+.layui-form-radio>i:hover,
+.layui-form-radioed>i {
+    color: #1890FF;
+}
+
+// 分页样式
+.tabel_page {
+    width: 100%;
+    position: absolute;
+    left: 25px;
+    bottom: 0;
+}
+
+.layui-laypage .layui-laypage-curr .layui-laypage-em {
+    background-color: @default-color02;
+}
+
+.list_content {
+    td {
+        span {
+            cursor: pointer;
+        }
+
+        i {
+            padding-right: 10px;
+            font-style: normal;
+        }
+
+    }
+}
+
+// 登录页
+.login_page {
+
+    ::-webkit-input-placeholder {
+        /* WebKit browsers */
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: rgba(255, 255, 255, 0.5)
+    }
+
+    .layui-input:focus {
+        outline: none;
+        border-bottom: 1px solid #fff !important;
+    }
+
+    .wrapper-content {
+        width: 100%;
+        height: 100%;
+        background: url("../../img/login_bj.png") no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        padding: 0;
+    }
+
+    .login_layout {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .login_content {
+            text-align: center;
+
+            .nestlot_icon {
+                width: 74px;
+                height: 74px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .nestlot_text {
+
+                width: 74px;
+                height: 40px;
+                display: block;
+                margin: 0 auto;
+                margin-top: 27px;
+            }
+
+            .layui-form {
+                margin-top: 60px;
+                width: 300px;
+
+                .layui-form-item {
+                    height: 65px;
+
+                    .layui-input {
+                        width: 100%;
+                        height: 50px;
+                        line-height: unset !important;
+                        border-radius: 0;
+                        background: unset;
+                        text-align: center;
+                        color: #fff;
+                        border: 0;
+                        border-bottom: 1px solid rgba(255, 255, 255, .2);
+                    }
+
+                }
+
+                .errow_mas {
+                    text-align: center;
+                    color: #FFA819;
+                }
+
+                .login_btn {
+                    margin-top: 60px;
+                    width: 100%;
+                    height: 41px;
+                    background: @default-color02;
+                    border-radius: 3px;
+                    line-height: 41px;
+                    color: #fff;
+                    text-align: center;
+                    border: 0;
+                }
+
+                button:focus {
+                    outline: none;
+                }
+
+                .forget_btn {
+                    text-align: center;
+                    margin-top: 15px;
+                    color: rgba(255, 255, 255, .5);
+                    cursor: pointer;
+
+                    &:hover {
+                        color: rgba(255, 255, 255, 1);
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
+
+// 数据统计 start
+.home_page {
+    .home_top {
+        .home_top_left {
+            padding: 20px 25px 20px 25px;
+            height: 550px;
+            background-color: #fff;
+
+            strong {
+                font-size: 30px;
+                display: inline-block;
+                margin-bottom: 15px;
+                position: relative;
+
+                span {
+                    font-size: 14px;
+                    font-weight: @font-weight-400;
+                    width: 60px;
+                    top: 5px;
+                    right: -65px;
+                    position: absolute;
+                }
+
+                .up_data {
+                    color: #4FC63D;
+                }
+
+                .down_data {
+                    color: #FF6A64;
+                }
+            }
+
+            .today_order strong {
+                color: @default-color02
+            }
+
+            .item-data {
+                padding: 40px 0 44px 0;
+                border-bottom: 1px solid #F5F5F5;
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
+        }
+
+        .massage_show {
+            height: 172px;
+            padding: 20px 25px;
+            background-color: #fff;
+
+            .tips {
+                width: 100%;
+                height: 46px;
+                line-height: 46px;
+                padding: 0 16px;
+                display: flex;
+                flex-direction: row;
+                background-color: #FFF5F7;
+                border-radius: 5px;
+                justify-content: space-between;
+
+                p {
+                    font-size: 14px;
+                }
+
+                a {
+                    font-size: 14px;
+                    color: @default-color02;
+                }
+            }
+        }
+    }
+
+    .home_middle {
+        .my_charts {
+            background-color: #fff;
+            margin-bottom: 25px;
+
+            .my_lineCharts {
+                min-height: 500px;
+                padding-top: 20px;
+            }
+        }
+    }
+
+    .home_bottom {
+        .my_charts {
+            min-height: 440px;
+            background-color: #fff;
+            margin-bottom: 25px;
+            padding: 30px 25px 24px 25px;
+
+            .order_charts,
+            .ageRatio_charts,
+            .genderRatio_charts {
+                min-height: 440px
+            }
+
+        }
+
+    }
+}
+
+// 封房管理
+.sealRoom_page {
+    ::-webkit-scrollbar {
+        display: unset
+    }
+
+    .layui-form-select dl {
+        z-index: 10000;
+    }
+
+    .select-box-dashed {
+        position: absolute;
+        display: none;
+        width: 0px;
+        height: 0px;
+        padding: 0px;
+        margin: 0px;
+        border: 1px dashed #0099ff;
+        background-color: #c3d5ed;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        font-size: 0px;
+        z-index: 99999;
+    }
+
+    .query_keyWord {
+        margin-bottom: 25px;
+
+        h4 {
+            margin-bottom: 25px;
+        }
+
+        padding:20px 25px 0px 25px;
+        background-color: #fff;
+
+        .layui-form-item {
+            margin-bottom: 20px;
+        }
+
+        .layui-input-block {
+            margin-left: 0;
+        }
+
+        .layui-form-select .layui-input,
+        input {
+            line-height: 32px;
+            border-radius: 4px;
+            height: 32px;
+        }
+    }
+
+    .mybtn {
+        position: fixed;
+        right: 10px;
+        bottom: 20px;
+        display: block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        padding: 0px;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    .modal.left .modal-dialog,
+    .modal.right .modal-dialog {
+        position: fixed;
+        margin: auto;
+        width: 320px;
+        height: 100%;
+        -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+        -o-transform: translate3d(0%, 0, 0);
+        transform: translate3d(0%, 0, 0);
+    }
+
+    .modal.left .modal-content,
+    .modal.right .modal-content {
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .modal.left .modal-body,
+    .modal.right .modal-body {
+        padding: 15px 15px 80px;
+    }
+
+    .modal-header {
+        border-bottom: 0;
+
+        .close {
+            float: left;
+        }
+    }
+
+
+    .modal.left.fade .modal-dialog {
+        left: -320px;
+        -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+        transition: opacity 0.3s linear, left 0.3s ease-out;
+    }
+
+    .modal.left.fade.in .modal-dialog {
+        left: 0;
+    }
+
+
+    .modal.right.fade .modal-dialog {
+        right: -320px;
+        box-shadow: -5px 0px 6px rgba(0, 0, 0, 0.1);
+        -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+        transition: opacity 0.3s linear, right 0.3s ease-out;
+    }
+
+    .modal.right.fade.in .modal-dialog {
+        right: 0 !important;
+    }
+
+    /* ----- MODAL STYLE ----- */
+    .modal-content {
+        border-radius: 0;
+        border: none;
+        position: relative;
+
+        .userInfo {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .userInfo_left {
+                font-size: 19px;
+
+                img {
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 50%;
+                    vertical-align: middle;
+                    margin-right: 12px;
+                }
+            }
+
+            .userInfo_right {
+                padding-top: 15px;
+                color: #FF4369;
+                font-size: 10px;
+
+                i {
+                    display: inline-block;
+                    width: 6px;
+                    height: 6px;
+                    background-color: #FF4369;
+                    margin-right: 12px;
+                }
+            }
+
+        }
+
+        .orderDetail {
+            margin-top: 15px;
+
+            li {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                height: 47px;
+                border-bottom: 1px solid #DDDDDD;
+                line-height: 45px;
+                font-size: 13px;
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .modal-footer {
+        border-top: 0;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        box-shadow: -5px 0px 6px rgba(0, 0, 0, 0.1);
+        padding: 6px 12px;
+
+        .sureBtn {
+            width: 100%;
+            height: 30px;
+            background: #FFA819;
+            line-height: 30px;
+            font-size: 14px;
+            color: #fff;
+            border-radius: 20px;
+            text-align: center;
+        }
+    }
+
+    .coverPage {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 10000;
+        top: 100px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, .8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .coverPage_content {
+            text-align: center;
+
+            h3,
+            p {
+                margin-bottom: 10px;
+            }
+
+            button {
+                width: 84px;
+                height: 32px;
+                background: rgba(255, 168, 25, 1);
+                border-radius: 5px;
+                color: #fff;
+            }
+        }
+    }
+
+    .sealRoom_list {
+        padding-top: 20px;
+        background-color: #fff;
+        min-height: 550px;
+
+        .list_hearder {
+            padding: 0 15px;
+            // display: flex;
+            // justify-content: space-between;
+
+            .list_hearder_left {
+                h3 {
+                    display: inline-block;
+                    // margin-right: 20px;
+                }
+
+                span {
+                    font-size: 14px;
+                }
+
+                td {
+                    text-align: center;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+
+            }
+
+            .list_hearder_right {
+                display: flex;
+                flex-direction: row-reverse;
+                padding-top: 5px;
+
+
+                // justify-content: space-between;
+                .item {
+                    font-size: 14px;
+                    margin-left: 40px;
+
+                    &:first-child {
+                        // margin-left: 0;
+                    }
+
+                    i {
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        vertical-align: bottom;
+                        margin-right: 8px;
+                    }
+
+                    .yellow {
+                        background-color: #FFA819;
+                    }
+
+                    .gray {
+                        background-color: #E7E7E7;
+                    }
+
+                    .no_time {
+                        color: #939393
+                    }
+                }
+            }
+        }
+
+        .tabel_content {
+            margin-top: 25px;
+            width: 100%;
+            border: 1px solid #E8E8E8;
+            border: 1px solid #E8E8E8;
+            border-top: 0;
+            border-bottom: 0;
+            position: relative;
+
+            ul {
+
+                border-right: 1px solid #E8E8E8;
+                display: flex;
+                flex-direction: row;
+            }
+
+            li {
+                width: 145px;
+                height: 54px;
+                line-height: 54px;
+                text-align: center;
+                border: 1px solid #E8E8E8;
+                font-size: 14px;
+            }
+
+            .tabel_layout {
+                display: flex;
+                flex-direction: row;
+                position: relative;
+
+                table {
+                    margin: 0;
+                }
+
+                tr {
+                    position: relative;
+                }
+
+                tbody {
+                    position: relative;
+                }
+
+                .usedBox {
+                    width: 100%;
+                    overflow: hidden;
+                }
+
+                .usedFlag {
+                    position: absolute;
+                    width: 290px;
+                    height: 38px;
+                    background: #FFA819;
+                    text-align: center;
+                    color: #fff;
+                    line-height: 38px;
+                    overflow: hidden;
+                    z-index: 2;
+                    cursor: default;
+
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        width: 4px;
+                        top: 0;
+                        bottom: 0;
+                        background-color: #DD8900;
+                        right: 0;
+                    }
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        width: 4px;
+                        top: 0;
+                        bottom: 0;
+                        background-color: #DD8900;
+                        left: 0;
+                    }
+                }
+
+                .sealFlag {
+                    position: absolute;
+                    width: 290px;
+                    height: 38px;
+                    background: #E7E7E7;
+                    text-align: center;
+                    line-height: 38px;
+                    overflow: hidden;
+                    z-index: 2;
+
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        width: 4px;
+                        top: 0;
+                        bottom: 0;
+                        background-color: #B7B7B7;
+                        right: 0;
+                    }
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        width: 4px;
+                        top: 0;
+                        bottom: 0;
+                        background-color: #B7B7B7;
+                        left: 0;
+                    }
+                }
+
+                th,
+                td {
+                    width: 145px;
+                    height: 54px;
+                    text-align: center;
+                    cursor: pointer;
+
+                }
+
+                td {
+                    padding: 0;
+                    min-height: 54px;
+                    line-height: 54px;
+
+                    img {
+                        width: 69px;
+                        height: 40px
+                    }
+                }
+
+                .tabel_content-left {
+                    width: 291px;
+                    overflow: hidden;
+                    position: relative;
+                    z-index: 1000;
+                }
+
+                .selected,
+                .temp-selected {
+                    background: rgba(255, 168, 25, 1);
+                    color: #fff;
+                }
+
+
+                .tabel_content-right {
+                    width: 100%;
+                    padding-left: 290px;
+                    position: absolute;
+                    background-color: #fff;
+                    left: 0;
+                    top: 0;
+                    // display: flex;
+                    // flex-direction: row;
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch
+                }
+            }
+        }
+    }
+}
+
+// 列表样式
+.order_list {
+    width: 100%;
+    background-color: #fff;
+    padding: 18px 25px 25px 25px;
+    position: relative;
+    padding-bottom: 70px;
+
+
+    .table_layout {
+
+        // width: 100%;
+        // overflow: hidden;
+        .list_header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            h4 {
+                // margin-right: 35px;
+                margin-bottom: 5px;
+            }
+
+            .list_nav {
+                display: flex;
+                flex-direction: row;
+
+                a {
+                    display: block;
+                    height: 32px;
+                    line-height: 32px;
+                    padding: 0 16px;
+                    font-size: 14px;
+                    border: 1px solid #E8E8E8;
+                    border-right: 0;
+
+                    &:last-child {
+                        border-right: 1px solid #E8E8E8;
+                    }
+                }
+
+                .active {
+                    color: @default-color02;
+                    border-right: 1px solid @default-color02  !important;
+                    border: 1px solid @default-color02;
+                }
+            }
+        }
+
+        .list_content {
+            -webkit-overflow-scrolling: touch;
+            overflow-x: auto;
+
+            th {
+                text-align: center;
+            }
+
+            td {
+                text-align: center;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+                &:hover {
+                    background-color: unset;
+                }
+
+            }
+
+            .action_bar {
+                span {
+                    color: @default-color02;
+                }
+            }
+        }
+    }
+
+
+}
+
+// 订单管理
+.orderManage_page {
+    ::-webkit-scrollbar {
+        display: unset;
+    }
+
+    .nav_bar {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 25px;
+
+        a {
+            width: 88px;
+            height: 46px;
+            line-height: 46px;
+            text-align: center;
+            font-size: 14px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .active {
+            color: @default-color02;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background-color: @default-color02;
+            }
+        }
+
+
+    }
+
+    .query_keyWord {
+        margin-bottom: 25px;
+
+        h4 {
+            margin-bottom: 25px;
+        }
+
+        padding:20px 25px 0px 25px;
+        background-color: #fff;
+
+        .layui-form-item {
+            margin-bottom: 20px;
+        }
+
+        .layui-input-block {
+            margin-left: 0;
+        }
+
+        .layui-form-select .layui-input,
+        input {
+            line-height: 32px;
+            border-radius: 4px;
+            height: 32px;
+        }
+    }
+
+
+
+    .datepicker table tr td.active:hover,
+    .datepicker table tr td.active:hover:hover,
+    .datepicker table tr td.active.active,
+    .datepicker table tr td.active:hover.active {
+        background-color: @default-color02;
+    }
+
+
+}
+
+// 订单详情
+.orderDetail_page {
+    .orderDetail_content {
+        padding: 27px 22px;
+        background-color: #fff;
+
+        .roomInfo {
+            margin-bottom: 50px;
+
+            img {
+                width: 120px;
+                height: 70px;
+                margin-right: 20px;
+                vertical-align: middle;
+            }
+        }
+
+        .realInfo {
+            margin-bottom: 20px;
+
+            ul {
+                margin-top: 20px;
+
+                li {
+                    float: left;
+                    padding: 12px 13px 3px 12px;
+                    border-radius: 4px;
+                    background-color: #F5F5F5;
+                    margin-right: 20px;
+                    margin-bottom: 10px;
+
+                    p {
+                        padding-left: 26px;
+                        font-weight: 500;
+                        color: #020202;
+                        font-size: 16px;
+                        padding-bottom: 10px;
+                        position: relative;
+                    }
+
+                    i {
+                        padding-right: 5px;
+                        position: absolute;
+                        top: 5px;
+                        left: 0;
+                    }
+                }
+            }
+        }
+
+        .orderInfo {
+            margin-bottom: 30px;
+
+            td {
+                height: 58px;
+                text-align: center;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            tr {
+                td:first-child {
+                    background-color: #FAFAFA;
+                }
+            }
+        }
+    }
+}
+
+// 优惠券管理
+.couponManage_page {
+    .tips {
+        display: inline-block;
+        height: 46px;
+        line-height: 46px;
+        padding: 0 44px 0 20px;
+        color: rgba(0, 0, 0, 0.65);
+        background: rgba(0, 0, 0, 0.02);
+        margin-bottom: 25px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        i {
+            padding-right: 5px;
+        }
+    }
+
+    .query_keyWord {
+        margin-bottom: 25px;
+
+        h4 {
+            margin-bottom: 25px;
+        }
+
+        padding:20px 25px 25px 25px;
+        background-color: #fff;
+
+        .layui-input-block {
+            margin-left: 0;
+        }
+
+        input {
+            line-height: 32px;
+            border-radius: 4px;
+            height: 32px;
+            line-height: 32px;
+            padding: 0 10px;
+            padding-right: 25px;
+        }
+
+        .layui-form-select dl dd.layui-this {
+            background-color: @default-color02;
+            color: #fff;
+        }
+
+        .layui-form-item {
+            margin-bottom: 0;
+
+        }
+
+    }
+
+    .layui-input-block {
+        margin-left: 110px;
+    }
+
+}
+
+//房间管理
+.roomManage_page {
+    .nav_bar {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 25px;
+
+        a {
+            width: 88px;
+            height: 46px;
+            line-height: 46px;
+            text-align: center;
+            font-size: 14px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .active {
+            color: @default-color02;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background-color: @default-color02;
+            }
+        }
+
+
+    }
+
+}
+
+// 价格编辑
+.priceManage_page {
+    .priceManage_page_title {
+        margin-bottom: 25px;
+        color: rgba(0, 0, 0, 0.65);
+    }
+
+    .table_layout {
+        h4 {
+            margin-bottom: 20px;
+        }
+
+        .list_content {
+            td {
+                i {
+                    padding-left: 5px;
+                }
+
+                input {
+                    height: 27px;
+                    line-height: 27px;
+                    max-width: 64px;
+                    margin: 0 auto;
+                    border-radius: 4px;
+                    padding-left: 5px;
+                    caret-color: @default-color02;
+                }
+            }
+        }
+    }
+}
+
+// 添加房间
+.addRoom_page {
+    .tips {
+        margin-bottom: 20px;
+    }
+
+    .addRoom_item {
+        padding: 25px 25px 10px 25px;
+        background-color: #fff;
+
+        .hearder {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .layui-form-label {
+            // padding-right: 15px;
+            width: 70px;
+            text-align: left;
+        }
+
+
+        .bedNum {
+            .layui-input-inline {
+                position: relative;
+                width: 100px;
+
+                i {
+                    width: 22px;
+                    height: 16px;
+                    border-left: 1px solid #E7E7E7;
+                }
+
+                .add_arrow {
+                    border-bottom: 1px solid #E7E7E7;
+                    position: absolute;
+                    top: 0;
+                    right: 0px;
+                }
+
+                .disabled {
+                    background-color: #E7E7E7;
+                }
+
+                .sub_arrow {
+                    border-bottom: 1px solid #E7E7E7;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0px;
+                }
+
+                input {
+                    padding-right: 30px;
+                }
+            }
+
+            span {
+                float: left;
+            }
+        }
+
+        .coord {
+            position: relative;
+
+            .toolTips {
+                width: 310px;
+                padding: 5px 14px;
+                border-radius: 4px;
+                background: rgba(0, 0, 0, 0.8);
+                color: #fff;
+                position: absolute;
+                right: 0;
+                top: -60px;
+                text-align: center;
+                z-index: 9;
+
+                // opacity: 0;
+                i {
+                    position: absolute;
+                    bottom: -9px;
+                    right: 100px;
+                    width: 0;
+                    height: 0;
+                    border-left: 8px solid transparent;
+                    border-right: 8px solid transparent;
+                    border-top: 10px solid rgba(0, 0, 0, 0.8);
+                    ;
+                }
+
+            }
+
+            .layui-input-inline {
+                position: relative;
+
+                i {
+                    position: absolute;
+                    right: 5px;
+                    top: 5px;
+                    font-size: 22px;
+                }
+
+                input {
+                    padding-right: 25px;
+                }
+            }
+        }
+
+        .room_features {
+            ul {
+                li {
+                    float: left;
+                    padding: 0 20px;
+
+                }
+            }
+
+        }
+
+        .lease_way {
+            display: flex;
+            flex-direction: row;
+
+            .layui-form-label {
+                line-height: 40px;
+            }
+
+        }
+
+    }
+
+    .layui-btn {
+        background-color: #7C50F2;
+    }
+}
+
+// 上传照片样式
+.upLoad_roomPic {
+    display: flex;
+    flex-direction: row;
+
+    .upLoad_btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #E7E7E7;
+        min-width: 104px !important;
+        height: 104px;
+        padding: 8px;
+        text-align: center;
+        margin-right: 34px;
+        border: 1px dashed rgba(0, 0, 0, 0.14901960784313725);
+        border-radius: 4px;
+        margin-bottom: 34px;
+
+        i {
+            font-size: 22px;
+        }
+
+        p {
+            margin-top: 15px;
+        }
+    }
+
+    .item_container,
+    .item_container2 {
+        position: relative;
+
+        .item_content ul {
+            list-style: none;
+        }
+
+        .item_content ul li {
+            width: 138px;
+            height: 124px;
+            float: left;
+
+        }
+
+        .item_content {
+            width: 100%;
+            height: auto;
+            float: left;
+        }
+
+        .item {
+            width: 104px;
+            height: 104px;
+            // line-height: 120px;
+            text-align: center;
+            position: absolute;
+            padding: 8px;
+            border: 1px solid red;
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.14901960784313725);
+            border-radius: 4px;
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .close {
+            display: block;
+            width: 20px;
+            height: 20px;
+            top: 0;
+            right: 0;
+            z-index: 2222;
+            position: absolute;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            // color: aliceblue;
+            color: @default-color02;
+
+
+        }
+
+        .border {
+            width: 104px;
+            height: 104px;
+            position: absolute;
+            left: -8px;
+            top: -8px;
+            border-radius: 4px;
+            border: 1px solid #E7E7E7;
+        }
+
+    }
+
+}
+
+// 密码管理
+.passwordManage_page {
+    .password_list {
+        li {
+            float: left;
+            height: 32px;
+            line-height: 32px;
+            background: #EFEFEF;
+            border-radius: 4px;
+            padding: 0 13px;
+            margin-right: 10px;
+            position: relative;
+
+            i {
+                position: absolute;
+                top: -15px;
+                right: -5px;
+                color: #BFBFBF;
+            }
+        }
+    }
+
+    .greate_label {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .greate_password {
+        height: 35px;
+        line-height: 35px;
+        padding: 0 10px;
+        border-radius: 5px;
+        background: rgba(124, 80, 242, 0.1);
+        ;
+        margin-bottom: 10px;
+        color: #7C50F2;
+    }
+
+}
+
+// 小商店管理
+
+.shoreManage_page {
+    .modal {
+        li {
+            width: 50%;
+            float: left;
+            margin-bottom: 15px;
+
+        }
+    }
+}
+
+// 第一次上房
+.upData_step {
+    .stepChart {
+        padding: 0 20px;
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 15px;
+
+        li {
+            float: left;
+            width: 23.75%;
+            padding-right: 10px;
+            color: rgba(0, 0, 0, 0.45);
+
+            &:last-child {
+                width: 5%;
+            }
+
+            p {
+                padding-left: 37px;
+                padding-right: 60px;
+            }
+
+            .step_axis {
+                span {
+                    color: rgba(0, 0, 0, 0.45);
+                }
+
+
+                .circel {
+                    display: inline-block;
+                    width: 32px;
+                    height: 32px;
+                    text-align: center;
+                    line-height: 32px;
+                    border: 1px solid rgba(0, 0, 0, 0.14901960784313725);
+                    border-radius: 50%;
+                    margin-right: 5px;
+                }
+
+                .line {
+                    display: inline-block;
+                    width: 45%;
+                    height: 1px;
+                    background: rgba(0, 0, 0, 0.15);
+                    margin-left: 5px;
+                    margin-bottom: 5px;
+
+                }
+
+                .active_color {
+                    color: rgba(0, 0, 0, 0.85);
+                }
+
+                .active_bgc {
+                    background: #1890FF;
+                    color: #fff;
+                    border: 0;
+                }
+
+                .over_step {
+                    background: unset;
+                    border: 1px solid #1890FF;
+                    color: #1890FF;
+                }
+            }
+        }
+
+    }
+
+    .upData_content {
+        background-color: #fff;
+        padding: 30px;
+    }
+
+    .input_roomName {
+        display: flex;
+        flex-direction: row;
+
+        span {
+            line-height: 32px;
+        }
+
+        input {
+            width: unset;
+            margin: 0 10px;
+        }
+
+    }
+
+    .modal-body {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .step_img {
+        padding: 20px 30px 0 30px;
+
+        img {
+            max-width: 100%;
+            max-height: 350px;
+        }
+    }
+
+
+
+}
+
+@media (min-width:750px) {
+    .upData_step .stepChart li p {
+        padding-left: 5px !important;
+        padding-right: 10px !important;
+    }
+
+}

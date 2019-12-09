@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nest_lot.dao.mapper.SysFuntreeInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.nest_lot.dao.entity.SysFuntreeInfo" >
+    <id column="fun_id" property="funId" jdbcType="BIGINT" />
+    <result column="fun_uuid" property="funUuid" jdbcType="VARCHAR" />
+    <result column="fun_name" property="funName" jdbcType="VARCHAR" />
+    <result column="fun_level" property="funLevel" jdbcType="VARCHAR" />
+    <result column="fun_addr" property="funAddr" jdbcType="VARCHAR" />
+    <result column="fun_order" property="funOrder" jdbcType="VARCHAR" />
+    <result column="fun_pid" property="funPid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    fun_id, fun_uuid, fun_name, fun_level, fun_addr, fun_order, fun_pid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="string" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_funtree_info
+    where fun_uuid = #{uuId,jdbcType=VARCHAR}
+  </select>
+
+  
+  <select id="selectByFunList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_funtree_info
+    where fun_uuid in 
+    <foreach collection="FunListId" item="FunId" open="(" close=")" separator=",">
+    #{FunId}
+    </foreach>
+  </select>
+  
+  
+    
+   <select id="queryByListNoPid" resultMap="BaseResultMap" parameterType="string" >
+    select 
+    <include refid="Base_Column_List" />
+    from  sys_funtree_info
+    where   fun_pid<![CDATA[!= '0']]>
+    <if test="@Ognl@isNotEmpty(funName)">
+    and fun_name = #{funName,jdbcType=VARCHAR}
+    </if>
+    
+  </select>
+  
+  
+      
+   <select id="queryByPidList" resultMap="BaseResultMap" parameterType="string" >
+    select 
+    <include refid="Base_Column_List" />
+    from  sys_funtree_info
+    where fun_pid = <![CDATA['0']]>
+  </select>
+  
+  
+  <select id="selectByPidList" resultMap="BaseResultMap" parameterType="string" >
+    select 
+    <include refid="Base_Column_List" />
+    from  sys_funtree_info
+    where fun_pid = #{funPid,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <delete id="delete" parameterType="string" >
+    delete from sys_funtree_info
+    where fun_uuid = #{funUuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.nest_lot.dao.entity.SysFuntreeInfo" useGeneratedKeys="true" keyProperty="funId">
+    insert into sys_funtree_info (fun_uuid, fun_name, 
+      fun_level, fun_addr, fun_order, 
+      fun_pid)
+    values (#{funUuid,jdbcType=VARCHAR}, #{funName,jdbcType=VARCHAR}, 
+      #{funLevel,jdbcType=VARCHAR}, #{funAddr,jdbcType=VARCHAR}, #{funOrder,jdbcType=VARCHAR}, 
+      #{funPid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nest_lot.dao.entity.SysFuntreeInfo" >
+    insert into sys_funtree_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="funId != null" >
+        fun_id,
+      </if>
+      <if test="funUuid != null" >
+        fun_uuid,
+      </if>
+      <if test="funName != null" >
+        fun_name,
+      </if>
+      <if test="funLevel != null" >
+        fun_level,
+      </if>
+      <if test="funAddr != null" >
+        fun_addr,
+      </if>
+      <if test="funOrder != null" >
+        fun_order,
+      </if>
+      <if test="funPid != null" >
+        fun_pid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="funId != null" >
+        #{funId,jdbcType=BIGINT},
+      </if>
+      <if test="funUuid != null" >
+        #{funUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="funName != null" >
+        #{funName,jdbcType=VARCHAR},
+      </if>
+      <if test="funLevel != null" >
+        #{funLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="funAddr != null" >
+        #{funAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="funOrder != null" >
+        #{funOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="funPid != null" >
+        #{funPid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nest_lot.dao.entity.SysFuntreeInfo" >
+    update sys_funtree_info
+    <set >
+      <if test="funUuid != null" >
+        fun_uuid = #{funUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="funName != null" >
+        fun_name = #{funName,jdbcType=VARCHAR},
+      </if>
+      <if test="funLevel != null" >
+        fun_level = #{funLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="funAddr != null" >
+        fun_addr = #{funAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="funOrder != null" >
+        fun_order = #{funOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="funPid != null" >
+        fun_pid = #{funPid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fun_id = #{funId,jdbcType=BIGINT}
+  </update>
+  <update id="update" parameterType="com.nest_lot.dao.entity.SysFuntreeInfo">
+    update sys_funtree_info
+    set
+      fun_name = #{funName,jdbcType=VARCHAR},
+      fun_pid = #{funPid,jdbcType=VARCHAR},
+       fun_addr = #{funAddr,jdbcType=VARCHAR},
+        fun_order = #{funOrder,jdbcType=VARCHAR}
+    where fun_uuid = #{funUuid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nest_lot.dao.mapper.UserLoginInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.nest_lot.dao.entity.UserLoginInfo" >
+    <id column="login_id" property="loginId" jdbcType="BIGINT" />
+    <result column="login_uuid" property="loginUuid" jdbcType="VARCHAR" />
+    <result column="login_time" property="loginTime" jdbcType="VARCHAR" />
+    <result column="login_ip" property="loginIp" jdbcType="VARCHAR" />
+    <result column="user_uuid" property="userUuid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    login_id, login_uuid, login_time, login_ip, user_uuid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_login_info
+    where login_id = #{loginId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user_login_info
+    where login_id = #{loginId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.nest_lot.dao.entity.UserLoginInfo" >
+    insert into user_login_info (login_id, login_uuid, login_time, 
+      login_ip, user_uuid)
+    values (#{loginId,jdbcType=BIGINT}, #{loginUuid,jdbcType=VARCHAR}, #{loginTime,jdbcType=VARCHAR}, 
+      #{loginIp,jdbcType=VARCHAR}, #{userUuid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nest_lot.dao.entity.UserLoginInfo" >
+    insert into user_login_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="loginId != null" >
+        login_id,
+      </if>
+      <if test="loginUuid != null" >
+        login_uuid,
+      </if>
+      <if test="loginTime != null" >
+        login_time,
+      </if>
+      <if test="loginIp != null" >
+        login_ip,
+      </if>
+      <if test="userUuid != null" >
+        user_uuid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="loginId != null" >
+        #{loginId,jdbcType=BIGINT},
+      </if>
+      <if test="loginUuid != null" >
+        #{loginUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="loginIp != null" >
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userUuid != null" >
+        #{userUuid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nest_lot.dao.entity.UserLoginInfo" >
+    update user_login_info
+    <set >
+      <if test="loginUuid != null" >
+        login_uuid = #{loginUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null" >
+        login_time = #{loginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="loginIp != null" >
+        login_ip = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userUuid != null" >
+        user_uuid = #{userUuid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where login_id = #{loginId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nest_lot.dao.entity.UserLoginInfo" >
+    update user_login_info
+    set login_uuid = #{loginUuid,jdbcType=VARCHAR},
+      login_time = #{loginTime,jdbcType=VARCHAR},
+      login_ip = #{loginIp,jdbcType=VARCHAR},
+      user_uuid = #{userUuid,jdbcType=VARCHAR}
+    where login_id = #{loginId,jdbcType=BIGINT}
+  </update>
+</mapper>

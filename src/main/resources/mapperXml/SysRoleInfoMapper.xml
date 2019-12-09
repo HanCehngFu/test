@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nest_lot.dao.mapper.SysRoleInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.nest_lot.dao.entity.SysRoleInfo" >
+    <id column="role_id" property="roleId" jdbcType="BIGINT" />
+    <result column="role_uuid" property="roleUuid" jdbcType="VARCHAR" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="role_time" property="roleTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    role_id, role_uuid, role_name, role_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="string" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role_info
+    where role_uuid = #{uuId,jdbcType=VARCHAR}
+  </select>
+  
+    
+   <select id="queryByList" resultMap="BaseResultMap" parameterType="string" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role_info where 1=1
+    <if test="@Ognl@isNotEmpty(name)">
+    and role_name = #{name,jdbcType=VARCHAR}
+    </if>
+    order by role_time desc
+  </select>
+  
+  
+  
+   <select id="selectByRoleList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role_info
+    where role_uuid in 
+    <foreach collection="RoleListId" item="RoleId" open="(" close=")" separator=",">
+    #{RoleId}
+    </foreach>
+  </select>
+  
+  
+  
+  <delete id="delete" parameterType="string" >
+    delete from sys_role_info
+    where role_uuid = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.nest_lot.dao.entity.SysRoleInfo" useGeneratedKeys="true" keyProperty="roleId" >
+    insert into sys_role_info (role_uuid, role_name, 
+      role_time)
+    values ( #{roleUuid,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, 
+      #{roleTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nest_lot.dao.entity.SysRoleInfo" >
+    insert into sys_role_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="roleUuid != null" >
+        role_uuid,
+      </if>
+      <if test="roleName != null" >
+        role_name,
+      </if>
+      <if test="roleTime != null" >
+        role_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="roleUuid != null" >
+        #{roleUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="roleName != null" >
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleTime != null" >
+        #{roleTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nest_lot.dao.entity.SysRoleInfo" >
+    update sys_role_info
+    <set >
+      <if test="roleUuid != null" >
+        role_uuid = #{roleUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="roleName != null" >
+        role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleTime != null" >
+        role_time = #{roleTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where role_id = #{roleId,jdbcType=BIGINT}
+  </update>
+  <update id="update" parameterType="com.nest_lot.dao.entity.SysRoleInfo" >
+    update sys_role_info
+    set 
+      role_name = #{roleName,jdbcType=VARCHAR}
+    where role_uuid = #{roleUuid,jdbcType=BIGINT}
+  </update>
+</mapper>

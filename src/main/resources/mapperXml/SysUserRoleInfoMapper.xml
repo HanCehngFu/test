@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nest_lot.dao.mapper.SysUserRoleInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.nest_lot.dao.entity.SysUserRoleInfo" >
+    <id column="ur_id" property="urId" jdbcType="BIGINT" />
+    <result column="ur_uuid" property="urUuid" jdbcType="VARCHAR" />
+    <result column="user_uuid" property="userUuid" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="role_uuid" property="roleUuid" jdbcType="VARCHAR" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ur_id, ur_uuid, user_uuid, user_name, role_uuid, role_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="string" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_role_info
+    where user_uuid = #{uuId,jdbcType=VARCHAR}
+  </select>
+  
+    <select id="selectByListId" resultMap="BaseResultMap" parameterType="string" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_role_info
+    where role_uuid = #{uuId,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <delete id="delete" parameterType="string" >
+    delete from sys_user_role_info
+    where user_uuid = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.nest_lot.dao.entity.SysUserRoleInfo" >
+    insert into sys_user_role_info (ur_id, ur_uuid, user_uuid, 
+      user_name, role_uuid, role_name
+      )
+    values (#{urId,jdbcType=BIGINT}, #{urUuid,jdbcType=VARCHAR}, #{userUuid,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{roleUuid,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}
+      )
+  </insert>
+ 
+  <update id="update" parameterType="com.nest_lot.dao.entity.SysUserRoleInfo" >
+    update sys_user_role_info
+    <set >
+      <if test="@Ognl@isNotEmpty(userName)" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(roleUuid)" >
+        role_uuid = #{roleUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="@Ognl@isNotEmpty(roleName)" >
+        role_name = #{roleName,jdbcType=VARCHAR}
+      </if>
+    </set>
+    where user_uuid = #{userUuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nest_lot.dao.entity.SysUserRoleInfo" >
+    update sys_user_role_info
+    set ur_uuid = #{urUuid,jdbcType=VARCHAR},
+      user_uuid = #{userUuid,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      role_uuid = #{roleUuid,jdbcType=VARCHAR},
+      role_name = #{roleName,jdbcType=VARCHAR}
+    where ur_id = #{urId,jdbcType=BIGINT}
+  </update>
+</mapper>

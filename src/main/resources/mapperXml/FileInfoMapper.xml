@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nest_lot.dao.mapper.FileInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.nest_lot.dao.entity.FileInfo" >
+    <id column="file_id" property="fileId" jdbcType="BIGINT" />
+    <result column="file_uuid" property="fileUuid" jdbcType="VARCHAR" />
+    <result column="file_status" property="fileStatus" jdbcType="VARCHAR" />
+    <result column="file_type" property="fileType" jdbcType="VARCHAR" />
+    <result column="file_desc" property="fileDesc" jdbcType="VARCHAR" />
+    <result column="file_name" property="fileName" jdbcType="VARCHAR" />
+    <result column="file_url" property="fileUrl" jdbcType="VARCHAR" />
+    <result column="file_size" property="fileSize" jdbcType="VARCHAR" />
+    <result column="file_used_type" property="fileUsedType" jdbcType="VARCHAR" />
+    <result column="file_used_uuid" property="fileUsedUuid" jdbcType="VARCHAR" />
+    <result column="file_save_name" property="fileSaveName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="VARCHAR" />
+    <result column="create_one_uuid" property="createOneUuid" jdbcType="VARCHAR" />
+    <result column="update_one_uuid" property="updateOneUuid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    file_id, file_uuid, file_status, file_type, file_desc, file_name, file_url, file_size, 
+    file_used_type, file_used_uuid, file_save_name, create_time, update_time, create_one_uuid, 
+    update_one_uuid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from file_info
+    where file_id = #{fileId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from file_info
+    where file_id = #{fileId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByFileUsedUuid" parameterType="java.lang.String" >
+    delete from file_info
+    where file_used_uuid = #{fileUsedUuid} and file_used_type = #{fileUsedType}
+  </delete>
+  <insert id="insert" parameterType="com.nest_lot.dao.entity.FileInfo" >
+    insert into file_info (file_id, file_uuid, file_status, 
+      file_type, file_desc, file_name, 
+      file_url, file_size, file_used_type, 
+      file_used_uuid, file_save_name, create_time, 
+      update_time, create_one_uuid, update_one_uuid
+      )
+    values (#{fileId,jdbcType=BIGINT}, #{fileUuid,jdbcType=VARCHAR}, #{fileStatus,jdbcType=VARCHAR}, 
+      #{fileType,jdbcType=VARCHAR}, #{fileDesc,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, 
+      #{fileUrl,jdbcType=VARCHAR}, #{fileSize,jdbcType=VARCHAR}, #{fileUsedType,jdbcType=VARCHAR}, 
+      #{fileUsedUuid,jdbcType=VARCHAR}, #{fileSaveName,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=VARCHAR}, #{createOneUuid,jdbcType=VARCHAR}, #{updateOneUuid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.nest_lot.dao.entity.FileInfo" >
+    insert into file_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fileId != null" >
+        file_id,
+      </if>
+      <if test="fileUuid != null" >
+        file_uuid,
+      </if>
+      <if test="fileStatus != null" >
+        file_status,
+      </if>
+      <if test="fileType != null" >
+        file_type,
+      </if>
+      <if test="fileDesc != null" >
+        file_desc,
+      </if>
+      <if test="fileName != null" >
+        file_name,
+      </if>
+      <if test="fileUrl != null" >
+        file_url,
+      </if>
+      <if test="fileSize != null" >
+        file_size,
+      </if>
+      <if test="fileUsedType != null" >
+        file_used_type,
+      </if>
+      <if test="fileUsedUuid != null" >
+        file_used_uuid,
+      </if>
+      <if test="fileSaveName != null" >
+        file_save_name,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createOneUuid != null" >
+        create_one_uuid,
+      </if>
+      <if test="updateOneUuid != null" >
+        update_one_uuid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fileId != null" >
+        #{fileId,jdbcType=BIGINT},
+      </if>
+      <if test="fileUuid != null" >
+        #{fileUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="fileStatus != null" >
+        #{fileStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fileType != null" >
+        #{fileType,jdbcType=VARCHAR},
+      </if>
+      <if test="fileDesc != null" >
+        #{fileDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null" >
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileUrl != null" >
+        #{fileUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null" >
+        #{fileSize,jdbcType=VARCHAR},
+      </if>
+      <if test="fileUsedType != null" >
+        #{fileUsedType,jdbcType=VARCHAR},
+      </if>
+      <if test="fileUsedUuid != null" >
+        #{fileUsedUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSaveName != null" >
+        #{fileSaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createOneUuid != null" >
+        #{createOneUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="updateOneUuid != null" >
+        #{updateOneUuid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nest_lot.dao.entity.FileInfo" >
+    update file_info
+    <set >
+      <if test="fileUuid != null" >
+        file_uuid = #{fileUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="fileStatus != null" >
+        file_status = #{fileStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fileType != null" >
+        file_type = #{fileType,jdbcType=VARCHAR},
+      </if>
+      <if test="fileDesc != null" >
+        file_desc = #{fileDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null" >
+        file_name = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileUrl != null" >
+        file_url = #{fileUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null" >
+        file_size = #{fileSize,jdbcType=VARCHAR},
+      </if>
+      <if test="fileUsedType != null" >
+        file_used_type = #{fileUsedType,jdbcType=VARCHAR},
+      </if>
+      <if test="fileUsedUuid != null" >
+        file_used_uuid = #{fileUsedUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSaveName != null" >
+        file_save_name = #{fileSaveName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createOneUuid != null" >
+        create_one_uuid = #{createOneUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="updateOneUuid != null" >
+        update_one_uuid = #{updateOneUuid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where file_id = #{fileId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nest_lot.dao.entity.FileInfo" >
+    update file_info
+    set file_uuid = #{fileUuid,jdbcType=VARCHAR},
+      file_status = #{fileStatus,jdbcType=VARCHAR},
+      file_type = #{fileType,jdbcType=VARCHAR},
+      file_desc = #{fileDesc,jdbcType=VARCHAR},
+      file_name = #{fileName,jdbcType=VARCHAR},
+      file_url = #{fileUrl,jdbcType=VARCHAR},
+      file_size = #{fileSize,jdbcType=VARCHAR},
+      file_used_type = #{fileUsedType,jdbcType=VARCHAR},
+      file_used_uuid = #{fileUsedUuid,jdbcType=VARCHAR},
+      file_save_name = #{fileSaveName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR},
+      create_one_uuid = #{createOneUuid,jdbcType=VARCHAR},
+      update_one_uuid = #{updateOneUuid,jdbcType=VARCHAR}
+    where file_id = #{fileId,jdbcType=BIGINT}
+  </update>
+  <select id="queryFileInfoByNestUid" parameterType="string" resultMap="BaseResultMap">
+        SELECT fi.file_id, fi.file_uuid,fi.file_url,fi.file_name,fi.file_used_type,fi.file_type,fi.file_status FROM `file_info` fi
+        <where>
+        	<if test="nestUuid!=null and nestUuid!=''">
+            	and fi.file_used_uuid=#{nestUuid}
+       		</if>
+       		<if test="fileUsedType!=null and fileUsedType!=''">
+            	and fi.file_used_type=#{fileUsedType}
+       		</if>
+       		<if test="fileStatus!=null and fileStatus!=''">
+            	and fi.file_status=#{fileStatus}
+       		</if>
+        </where>
+        order by fi.file_type ASC
+    </select>
+  <update id="updateFileTypeAndStatusByUUID" parameterType="com.nest_lot.dao.entity.FileInfo" >
+    update file_info set
+    	file_status = #{fileStatus,jdbcType=VARCHAR},
+    	file_type = #{fileType,jdbcType=VARCHAR}
+    where file_uuid = #{fileUuid,jdbcType=VARCHAR}
+  </update>
+  <select id="findByUUID" resultMap="BaseResultMap">
+  	 select 
+    <include refid="Base_Column_List" />
+    from file_info
+    where file_uuid = #{fileuuid,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="findByFileUsedType" resultMap="BaseResultMap">
+  	 select 
+    <include refid="Base_Column_List" />
+    from file_info
+    where file_used_type = #{fileUsedType,jdbcType=VARCHAR}
+  </select>
+</mapper>

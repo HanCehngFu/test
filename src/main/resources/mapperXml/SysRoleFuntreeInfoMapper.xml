@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nest_lot.dao.mapper.SysRoleFuntreeInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.nest_lot.dao.entity.SysRoleFuntreeInfo" >
+    <id column="rf_id" property="rfId" jdbcType="BIGINT" />
+    <result column="rf_uuid" property="rfUuid" jdbcType="VARCHAR" />
+    <result column="role_uuid" property="roleUuid" jdbcType="VARCHAR" />
+    <result column="fun_uuid" property="funUuid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    rf_id, rf_uuid, role_uuid, fun_uuid
+  </sql>
+  <select id="selectByRoleList" resultMap="BaseResultMap" parameterType="string" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role_funtree_info
+    where role_uuid = #{uuId,jdbcType=VARCHAR}
+  </select>
+  
+    
+    <select id="selectByListId" resultMap="BaseResultMap" parameterType="string" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role_funtree_info
+    where role_uuid = #{uuId,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="delete" parameterType="string" >
+    delete from sys_role_funtree_info
+    where role_uuid = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertBatch" parameterType="com.nest_lot.dao.entity.SysRoleFuntreeInfo" >
+    insert into sys_role_funtree_info (rf_id, rf_uuid, role_uuid, 
+      fun_uuid)
+       values
+       <foreach collection ="list" item="item" separator =",">
+        (#{item.rfId,jdbcType=BIGINT}, #{item.rfUuid,jdbcType=VARCHAR}, #{item.roleUuid,jdbcType=VARCHAR}, 
+      #{item.funUuid,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertSelective" parameterType="com.nest_lot.dao.entity.SysRoleFuntreeInfo" >
+    insert into sys_role_funtree_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rfId != null" >
+        rf_id,
+      </if>
+      <if test="rfUuid != null" >
+        rf_uuid,
+      </if>
+      <if test="roleUuid != null" >
+        role_uuid,
+      </if>
+      <if test="funUuid != null" >
+        fun_uuid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rfId != null" >
+        #{rfId,jdbcType=BIGINT},
+      </if>
+      <if test="rfUuid != null" >
+        #{rfUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="roleUuid != null" >
+        #{roleUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="funUuid != null" >
+        #{funUuid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nest_lot.dao.entity.SysRoleFuntreeInfo" >
+    update sys_role_funtree_info
+    <set >
+      <if test="rfUuid != null" >
+        rf_uuid = #{rfUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="roleUuid != null" >
+        role_uuid = #{roleUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="funUuid != null" >
+        fun_uuid = #{funUuid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where rf_id = #{rfId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nest_lot.dao.entity.SysRoleFuntreeInfo" >
+    update sys_role_funtree_info
+    set rf_uuid = #{rfUuid,jdbcType=VARCHAR},
+      role_uuid = #{roleUuid,jdbcType=VARCHAR},
+      fun_uuid = #{funUuid,jdbcType=VARCHAR}
+    where rf_id = #{rfId,jdbcType=BIGINT}
+  </update>
+</mapper>
